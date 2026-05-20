@@ -164,7 +164,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 
 **Operational tasks**
 1. Driver app BLE gateway streams crate telemetry to cloud.
-2. Rule engine detects threshold breaches during the typical 7–8 hour Cameron Highlands → Johor/Singapore route window (SLA-monitored, with escalation if route duration exceeds threshold).
+2. Rule engine detects threshold breaches during the Cameron Highlands → Johor/Singapore route window (7–8 hours baseline from historical route telemetry; formalized as an SLA threshold with escalation if duration exceeds limit).
 3. Alert fan-out:
    - Notify HQ Admin + Warehouse Supervisor + assigned driver channel.
 4. Rejection automation at warehouse scan:
@@ -174,7 +174,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
      - supplier status sync update.
 
 **Outputs**
-- Faster exception handling, projected paperwork reduction target (up to ~40%, to be validated against operational baseline KPIs), and closed-loop supplier feedback.
+- Faster exception handling, projected paperwork reduction target (up to ~40%), and closed-loop supplier feedback; KPI measured by comparing manual rejection/credit-note document handling volume before vs. after automation over an agreed baseline window (for example, first 8–12 weeks of production).
 
 ---
 
