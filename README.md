@@ -171,7 +171,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 1. Driver app BLE gateway streams crate telemetry to cloud.
 2. Rule engine detects threshold breaches during the Cameron Highlands → Johor/Singapore route window:
    - Historical route baseline: 7–8 hours.
-   - Early warning threshold: 7.0 hours (proactive intervention alerts with one-hour response buffer).
+   - Early warning threshold: 7.0 hours (set from historical travel-time distribution to preserve a one-hour intervention buffer before SLA breach).
    - Operational SLA threshold: 8 hours.
    - Escalation condition: trigger when ETA crosses 8 hours.
 3. Alert fan-out:
@@ -184,7 +184,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 
 **Outputs**
 - Faster exception handling.
-- Projected paperwork reduction target: best-case reduction of 40% against the pre-go-live baseline.
+- Projected paperwork reduction target: best-case reduction of 40% against the pre-go-live baseline (derived from process mapping that removes duplicate manual logging, report drafting, and credit-note preparation steps).
 - KPI method: compare manual rejection/credit-note document handling volume before vs. after automation across a fixed 12-week production baseline window.
 - KPI window and data collection: "before automation" baseline uses the 12 weeks immediately prior to go-live from historical document workflow logs; "after automation" uses the first 12 production weeks (T0 onward). "Manual handling volume" is defined as count of human-created or manually edited rejection/credit-note records.
 - Closed-loop supplier feedback.
