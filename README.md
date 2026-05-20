@@ -65,7 +65,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
    - Version dataset in DVC/S3 (`dataset_version`, annotation audit trail).
 3. **Training pipeline**
    - Scheduled or on-approval training job (SageMaker/EC2 GPU).
-   - Transfer learning in TensorFlow/Keras (default: MobileNetV2 for mobile efficiency; VGG-16 reserved for controlled experiments when accuracy uplift justifies compute overhead).
+   - Transfer learning in TensorFlow/Keras (default: MobileNetV2 for mobile efficiency; VGG-16 reserved for controlled experiments when MobileNetV2 drops below target accuracy on newly onboarded crop classes and expected uplift is at least +2 percentage points on validation metrics).
 4. **Optimization pipeline**
    - Convert best model to `.tflite` with quantization (int8/float16 candidate builds).
 5. **Validation gate**
@@ -73,7 +73,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
    - Softmax confidence calibration check for validated leafy-vegetable classes:
      - Target: Grade A confidence stability ≥ 92%.
      - Rationale: threshold selected from historical validation runs to satisfy Zenxin automated grading acceptance criteria.
-     - Borderline policy: predictions in the 90–92% band are flagged for secondary review or re-capture workflow.
+     - Borderline policy: predictions in the 90% ≤ confidence < 92% band are flagged for secondary review or re-capture workflow.
    - Other grades (B/C) and crop classes follow class-specific confidence thresholds defined in each approved model card from their own validation sets.
    - SHA-256 hash/signing of approved model artifact.
 
@@ -184,7 +184,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 
 **Outputs**
 - Faster exception handling.
-- Projected paperwork reduction target: up to ~40%.
+- Projected paperwork reduction target: best-case reduction of 40% against the pre-go-live baseline.
 - KPI method: compare manual rejection/credit-note document handling volume before vs. after automation across a fixed 12-week production baseline window.
 - KPI window and data collection: "before automation" baseline uses the 12 weeks immediately prior to go-live from historical document workflow logs; "after automation" uses the first 12 production weeks (T0 onward). "Manual handling volume" is defined as count of human-created or manually edited rejection/credit-note records.
 - Closed-loop supplier feedback.
