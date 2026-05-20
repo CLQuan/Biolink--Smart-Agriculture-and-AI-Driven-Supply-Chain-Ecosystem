@@ -57,10 +57,11 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 1. **Ingestion & validation**
    - EventBridge + Lambda validates image format, checksum, metadata completeness.
 2. **Annotation workflow**
-   - LabelImg-based annotation queue (managed through a central annotation portal with reviewer assignment) issued for classes covering:
+   - LabelImg-based annotation queue issued for classes covering:
      - Color/yellowing,
      - Morphology (size/shape),
      - Texture/defects (abrasion, wilting).
+   - Queue operations are managed through a central annotation portal with reviewer assignment.
    - Version dataset in DVC/S3 (`dataset_version`, annotation audit trail).
 3. **Training pipeline**
    - Scheduled or on-approval training job (SageMaker/EC2 GPU).
@@ -69,7 +70,10 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
    - Convert best model to `.tflite` with quantization (int8/float16 candidate builds).
 5. **Validation gate**
    - Benchmark accuracy/precision/recall/F1 on holdout set.
-   - Softmax confidence calibration check (target: Grade A confidence stability ≥ 92% for validated leafy-vegetable classes, chosen from historical validation runs to satisfy Zenxin acceptance criteria for automated grading; other crop classes use model-card thresholds derived from their own validation sets).
+   - Softmax confidence calibration check for validated leafy-vegetable classes:
+     - Target: Grade A confidence stability ≥ 92%.
+     - Rationale: threshold selected from historical validation runs to satisfy Zenxin automated grading acceptance criteria.
+   - Other crop classes follow class-specific confidence thresholds defined in each model card from their own validation sets.
    - SHA-256 hash/signing of approved model artifact.
 
 **Security/compliance gates**
@@ -164,7 +168,10 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 
 **Operational tasks**
 1. Driver app BLE gateway streams crate telemetry to cloud.
-2. Rule engine detects threshold breaches during the Cameron Highlands → Johor/Singapore route window (historical baseline 7–8 hours; operational SLA threshold fixed at 8 hours, with escalation once ETA crosses that threshold).
+2. Rule engine detects threshold breaches during the Cameron Highlands → Johor/Singapore route window:
+   - Historical route baseline: 7–8 hours.
+   - Operational SLA threshold: 8 hours.
+   - Escalation condition: trigger when ETA crosses 8 hours.
 3. Alert fan-out:
    - Notify HQ Admin + Warehouse Supervisor + assigned driver channel.
 4. Rejection automation at warehouse scan:
@@ -174,7 +181,10 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
      - supplier status sync update.
 
 **Outputs**
-- Faster exception handling, projected paperwork reduction target (up to ~40%), and closed-loop supplier feedback; KPI measured by comparing manual rejection/credit-note document handling volume before vs. after automation across a fixed 12-week production baseline window.
+- Faster exception handling.
+- Projected paperwork reduction target: up to ~40%.
+- KPI method: compare manual rejection/credit-note document handling volume before vs. after automation across a fixed 12-week production baseline window.
+- Closed-loop supplier feedback.
 
 ---
 
