@@ -73,7 +73,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
    - Softmax confidence calibration check for validated leafy-vegetable classes:
      - Target: Grade A confidence stability ≥ 92%.
      - Rationale: threshold selected from historical validation runs to satisfy Zenxin automated grading acceptance criteria.
-   - Other crop classes follow class-specific confidence thresholds defined in each model card from their own validation sets.
+   - Other grades (B/C) and crop classes follow class-specific confidence thresholds defined in each approved model card from their own validation sets.
    - SHA-256 hash/signing of approved model artifact.
 
 **Security/compliance gates**
@@ -170,6 +170,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 1. Driver app BLE gateway streams crate telemetry to cloud.
 2. Rule engine detects threshold breaches during the Cameron Highlands → Johor/Singapore route window:
    - Historical route baseline: 7–8 hours.
+   - Early warning threshold: 7.5 hours (proactive intervention alerts).
    - Operational SLA threshold: 8 hours.
    - Escalation condition: trigger when ETA crosses 8 hours.
 3. Alert fan-out:
@@ -184,6 +185,7 @@ Production-ready DevSecOps workflow for Zenxin Organic Food (Malaysia ↔ Singap
 - Faster exception handling.
 - Projected paperwork reduction target: up to ~40%.
 - KPI method: compare manual rejection/credit-note document handling volume before vs. after automation across a fixed 12-week production baseline window.
+- KPI window and data collection: baseline starts at production go-live (T0), data is collected from document workflow logs and approval audit trails, and "manual handling volume" is defined as count of human-created or manually edited rejection/credit-note records.
 - Closed-loop supplier feedback.
 
 ---
