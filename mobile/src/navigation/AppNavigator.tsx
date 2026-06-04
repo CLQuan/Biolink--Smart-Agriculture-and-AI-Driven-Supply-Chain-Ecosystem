@@ -57,8 +57,8 @@ function SupplierTabs() {
         component={SupplierHomeScreen}
         options={{
           tabBarLabel: ({ focused }) => <SupplierTabLabel label="Home" focused={focused} />,
-          tabBarIcon: ({ color, size }) => (
-            <TabBarIcon name={focused => focused ? 'home' : 'home-outline' as any} color={color} size={size} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} size={size} />
           ),
         }}
       />
