@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F5F0E8;
+    color: #2C1A0E;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F0E8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D4C9B0;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4A8C2A;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-[#D4C9B0] shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-[#2D5A1B] hover:bg-[#4A8C2A] text-white font-semibold px-4 py-2 rounded-xl transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-[#F5F0E8] hover:bg-[#D4C9B0] text-[#2C1A0E] font-medium px-4 py-2 rounded-xl border border-[#D4C9B0] transition-colors duration-200;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-warning {
+    @apply bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+
+  .input-field {
+    @apply w-full border border-[#D4C9B0] rounded-xl px-4 py-2.5 text-[#2C1A0E] bg-white focus:outline-none focus:ring-2 focus:ring-[#4A8C2A] focus:border-transparent placeholder-gray-400 transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .organic-gradient {
+    background: linear-gradient(135deg, #2D5A1B 0%, #4A8C2A 50%, #8BC34A 100%);
+  }
+
+  .grain-texture {
+    position: relative;
+  }
+
+  .grain-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
