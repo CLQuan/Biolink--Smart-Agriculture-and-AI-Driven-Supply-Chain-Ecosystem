@@ -27,14 +27,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow BioLink to access your camera for crop grading."
-        }
-      ]
-    ]
+    }
   }
 }

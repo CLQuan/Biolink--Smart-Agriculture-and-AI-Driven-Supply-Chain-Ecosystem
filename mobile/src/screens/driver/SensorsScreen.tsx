@@ -311,7 +311,6 @@ export default function SensorsScreen() {
             withInnerLines={true}
             withOuterLines={false}
             withShadow={false}
-            withLegend={true}
             withVerticalLines={false}
           />
           <View style={styles.chartAnnotations}>
