@@ -1,0 +1,26 @@
+{
+  "name": "biolink-api-gateway",
+  "version": "0.1.0",
+  "description": "Bio-Link API Gateway — Express REST API with JWT auth and RBAC",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test",
+    "lint": "eslint . || true"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.12.0",
+    "redis": "^4.6.14",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^9.5.0"
+  }
+}
