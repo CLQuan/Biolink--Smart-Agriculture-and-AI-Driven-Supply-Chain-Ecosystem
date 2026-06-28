@@ -142,6 +142,7 @@ export default function BatchListScreen() {
     pending: mockBatches.filter((b) => b.status === 'pending').length,
     approved: mockBatches.filter((b) => b.status === 'approved').length,
     rejected: mockBatches.filter((b) => b.status === 'rejected').length,
+    synced: mockBatches.filter((b) => b.status === 'synced').length,
   };
 
   return (
