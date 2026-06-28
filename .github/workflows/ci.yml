@@ -51,15 +51,15 @@ jobs:
       - run: npm run build
 
   mobile:
-    name: Mobile (Flutter)
+    name: Mobile (Expo / React Native)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: mobile
     steps:
       - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - uses: actions/setup-node@v4
         with:
-          channel: stable
-      - run: flutter pub get
-      - run: flutter analyze
+          node-version: "20"
+      - run: npm ci || npm install
+      - run: npx tsc --noEmit
